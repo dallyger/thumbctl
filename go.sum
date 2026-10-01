@@ -6,5 +6,9 @@ github.com/alecthomas/repr v0.5.2 h1:SU73FTI9D1P5UNtvseffFSGmdNci/O6RsqzeXJtP0Qs
 github.com/alecthomas/repr v0.5.2/go.mod h1:Fr0507jx4eOXV7AlPV6AVZLYrLIuIeSOWtW57eE/O/4=
 github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
 github.com/hexops/gotextdiff v1.0.3/go.mod h1:pSWU5MAI3yDq+fZBTazCSJysOMbxWL1BSow5/V2vxeg=
+github.com/sabhiram/png-embed v0.0.0-20180421025336-149afe9a3ccb h1:AuqP2DCYGHIPOtYhnvXiUOk2bneES9vTYfX3bBiwHdQ=
+github.com/sabhiram/png-embed v0.0.0-20180421025336-149afe9a3ccb/go.mod h1:GwEonSgMIDQak3yZSNNKyrfVKJ23krN3Y/r51V8Ytr8=
+github.com/sabhiram/pngr v0.0.0-20180419043407-2df49b015d4b h1:ks2d0TH6CtUISoThcRTP2jECmBMH3r/Dy1Q0GdfoD9E=
+github.com/sabhiram/pngr v0.0.0-20180419043407-2df49b015d4b/go.mod h1:BzaQ/DolG+VD2GwnmGuSO5gx07vyW/CWNfkfVW71mSw=
 go4.org v0.0.0-20260112195520-a5071408f32f h1:ziUVAjmTPwQMBmYR1tbdRFJPtTcQUI12fH9QQjfb0Sw=
 go4.org v0.0.0-20260112195520-a5071408f32f/go.mod h1:ZRJnO5ZI4zAwMFp+dS1+V6J6MSyAowhRqAE+DPa1Xp0=
