@@ -3,11 +3,26 @@ package thumbnailer
 import (
 	"fmt"
 	"io"
+	"iter"
+	"maps"
 	"os"
+	"slices"
 	"strings"
 
 	"gopkg.in/ini.v1"
 )
+
+type Entries map[string]Entry
+
+func (c Entries) Sorted() iter.Seq2[string, Entry] {
+	return func(yield func(string, Entry) bool) {
+		for _, k := range slices.Sorted(maps.Keys(c)) {
+			if !yield(k, c[k]) {
+				return
+			}
+		}
+	}
+}
 
 type Entry struct {
 	Exec     string   `ini:"Exec"`
@@ -57,7 +72,7 @@ func FromReader(f io.Reader) (Entry, error) {
 	return FromFile(b)
 }
 
-func GetEntries() (map[string]Entry, []error) {
+func GetEntries() (Entries, []error) {
 	entries := make(map[string]Entry)
 	var errors []error
 	for _, f := range GetEntryFiles() {

@@ -34,7 +34,7 @@ func (cmd *ThumbnailersCmd) Run() error {
 	}
 
 	var entries Entries
-	for path, entry := range thumbnailers {
+	for path, entry := range thumbnailers.Sorted() {
 		entries.Entries = append(entries.Entries, Entry{
 			Path:     path,
 			Exec:     entry.Exec,
