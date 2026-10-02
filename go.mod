@@ -9,4 +9,7 @@ require (
 	go4.org v0.0.0-20260112195520-a5071408f32f
 )
 
-require github.com/sabhiram/pngr v0.0.0-20180419043407-2df49b015d4b // indirect
+require (
+	github.com/sabhiram/pngr v0.0.0-20180419043407-2df49b015d4b // indirect
+	gopkg.in/ini.v1 v1.67.3
+)
