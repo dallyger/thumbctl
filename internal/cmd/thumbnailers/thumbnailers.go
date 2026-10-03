@@ -12,7 +12,7 @@ import (
 var outputHumanMaxMimeTypes = 5
 
 type ThumbnailersCmd struct {
-	Format string `enum:"human,json" default:"human"`
+	Format string `aliases:"fmt" default:"human" enum:"human,json,short" help:"Choose human, short or json."`
 }
 
 type Entries struct {

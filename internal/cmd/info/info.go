@@ -14,8 +14,8 @@ import (
 )
 
 type InfoCmd struct {
-	Format string `enum:"human,json" default:"human"`
-	Path   string `arg:""`
+	Path   string `arg:"" help:"Path to the file to check."`
+	Format string `enum:"human,json" default:"human" help:"Choose human or json."`
 }
 
 type Thumbnail struct {

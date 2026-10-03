@@ -8,8 +8,8 @@ import (
 )
 
 type PathCmd struct {
-	Size string `enum:"normal,large,x-large,xx-large" default:"large"`
-	Path string `arg:""`
+	Path string `arg:"" help:"Path to the file to check."`
+	Size string `enum:"normal,large,x-large,xx-large" default:"large" help:"Choose normal, large, x-large or xx-large."`
 }
 
 func (cmd *PathCmd) Run() error {
