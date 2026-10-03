@@ -1,13 +1,15 @@
-package thumbnail
+package metadata
 
 import (
 	"path/filepath"
 	"testing"
+
+	"go.vnbr.de/thumbctl/internal/thumbnail"
 )
 
 func TestAbsolutePath(t *testing.T) {
 	t.Chdir("/tmp")
-	cache := MustGetRootDir()
+	cache := thumbnail.MustGetRootDir()
 
 	tests := []struct {
 		name string

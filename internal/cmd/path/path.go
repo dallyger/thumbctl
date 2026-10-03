@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"go.vnbr.de/thumbctl/internal/metadata"
 	"go.vnbr.de/thumbctl/internal/thumbnail"
 )
 
@@ -13,7 +14,7 @@ type PathCmd struct {
 }
 
 func (cmd *PathCmd) Run() error {
-	thumb, err := thumbnail.FromPath(cmd.Path)
+	meta, err := metadata.FromPath(cmd.Path)
 	if err != nil {
 		return err
 	}
@@ -21,7 +22,7 @@ func (cmd *PathCmd) Run() error {
 	path := filepath.Join(
 		thumbnail.MustGetRootDir(),
 		cmd.Size,
-		thumb.UriHash+".png",
+		meta.UriHash+".png",
 	)
 
 	fmt.Printf("%s\n", path)

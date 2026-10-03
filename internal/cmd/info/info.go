@@ -9,7 +9,7 @@ import (
 	"text/tabwriter"
 	"time"
 
-	"go.vnbr.de/thumbctl/internal/thumbnail"
+	"go.vnbr.de/thumbctl/internal/metadata"
 	"go.vnbr.de/thumbctl/internal/thumbnail/data"
 )
 
@@ -18,7 +18,7 @@ type InfoCmd struct {
 	Format string `enum:"human,json" default:"human" help:"Choose human or json."`
 }
 
-type Thumbnail struct {
+type File struct {
 	Meta TextualData `json:"meta" tEXt:""`
 	Path string      `json:"absolute_path" human:"Thumbnail Path"`
 }
@@ -43,21 +43,21 @@ func (e UnsupportedFormatError) Error() string {
 }
 
 func (cmd *InfoCmd) Run() error {
-	thumb, err := thumbnail.FromPath(cmd.Path)
+	meta, err := metadata.FromPath(cmd.Path)
 	if err != nil {
 		return err
 	}
 
-	if !thumb.IsThumbnail {
+	if !meta.IsThumbnail {
 		return fmt.Errorf("given path is not a thumbnail file")
 	}
 
-	file := Thumbnail{
-		Path: thumb.AbsolutePath,
+	file := File{
+		Path: meta.AbsolutePath,
 	}
 
-	if err = data.UnmarshalTextualDataFromFile(thumb.AbsolutePath, &file); err != nil {
-		return fmt.Errorf("failed reading metadata of thumbnail at %s: %s", thumb.AbsolutePath, err)
+	if err = data.UnmarshalTextualDataFromFile(meta.AbsolutePath, &file); err != nil {
+		return fmt.Errorf("failed reading metadata of thumbnail at %s: %s", meta.AbsolutePath, err)
 	}
 
 	switch cmd.Format {
@@ -70,7 +70,7 @@ func (cmd *InfoCmd) Run() error {
 	}
 }
 
-func outputHuman(file Thumbnail) error {
+func outputHuman(file File) error {
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
 	fmt.Fprintf(w, "%s\n\n", outputHumanStruct(reflect.ValueOf(file)))
 	w.Flush()
@@ -113,7 +113,7 @@ func outputHumanRow(v reflect.Value, prefix string) string {
 	}
 }
 
-func outputJson(file Thumbnail) error {
+func outputJson(file File) error {
 	if out, err := json.Marshal(file); err != nil {
 		return err
 	} else {
