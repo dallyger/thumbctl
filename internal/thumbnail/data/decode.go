@@ -11,7 +11,7 @@ import (
 	pngembed "github.com/sabhiram/png-embed"
 )
 
-func UnmarshalTextualDataFromFile(path string, v any) error {
+func UnmarshalTextualDataFromPath(path string, v any) error {
 	rv := reflect.ValueOf(v)
 	if rv.Kind() != reflect.Pointer || rv.IsNil() || rv.Elem().Kind() != reflect.Struct {
 		return errors.New("UnmarshalTextualDataFromFile needs a non-nil pointer to a struct")

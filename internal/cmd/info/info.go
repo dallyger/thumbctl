@@ -56,7 +56,7 @@ func (cmd *InfoCmd) Run() error {
 		Path: meta.AbsolutePath,
 	}
 
-	if err = data.UnmarshalTextualDataFromFile(meta.AbsolutePath, &file); err != nil {
+	if err = data.UnmarshalTextualDataFromPath(meta.AbsolutePath, &file); err != nil {
 		return fmt.Errorf("failed reading metadata of thumbnail at %s: %s", meta.AbsolutePath, err)
 	}
 
