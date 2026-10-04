@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"go.vnbr.de/thumbctl/internal/metadata"
+	"go.vnbr.de/thumbctl/internal/thumbnail"
 	"go.vnbr.de/thumbctl/internal/thumbnail/data"
 )
 
@@ -48,7 +49,7 @@ func (cmd *InfoCmd) Run() error {
 		return err
 	}
 
-	if !meta.IsThumbnail {
+	if !thumbnail.IsThumbnail(meta.AbsolutePath) {
 		return fmt.Errorf("given path is not a thumbnail file")
 	}
 

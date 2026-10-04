@@ -1,15 +1,11 @@
 package metadata
 
 import (
-	"path/filepath"
 	"testing"
-
-	"go.vnbr.de/thumbctl/internal/thumbnail"
 )
 
 func TestAbsolutePath(t *testing.T) {
 	t.Chdir("/tmp")
-	cache := thumbnail.MustGetRootDir()
 
 	tests := []struct {
 		name string
@@ -38,14 +34,6 @@ func TestAbsolutePath(t *testing.T) {
 			"/tmp/foo bar.txt",
 			"file:///tmp/foo%20bar.txt",
 			"c329efdb2167dd14ca2d591c80ed35ea",
-		},
-		// As specified in the spec, any thumbnail file must be used directly.
-		{
-			"thumbnail-self-reference",
-			filepath.Join(cache, "dfc930eb4552e2baf77ca4d89c917a3b.png"),
-			filepath.Join(cache, "dfc930eb4552e2baf77ca4d89c917a3b.png"),
-			"file://" + filepath.Join(cache, "dfc930eb4552e2baf77ca4d89c917a3b.png"),
-			"dfc930eb4552e2baf77ca4d89c917a3b",
 		},
 	}
 

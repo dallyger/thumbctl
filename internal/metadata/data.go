@@ -5,9 +5,6 @@ import (
 	"fmt"
 	"net/url"
 	"path/filepath"
-	"strings"
-
-	"go.vnbr.de/thumbctl/internal/thumbnail"
 )
 
 type Meta struct {
@@ -15,7 +12,6 @@ type Meta struct {
 	CanonicalUri string
 	OriginalPath string
 	UriHash      string
-	IsThumbnail  bool
 }
 
 func FromPath(path string) (Meta, error) {
@@ -27,15 +23,6 @@ func FromPath(path string) (Meta, error) {
 		meta.AbsolutePath = path
 	} else {
 		return meta, err
-	}
-
-	// Check if file is already a thumbnail and return itself.
-	// As per the freedesktop thumbnail spec:, we "must load and use these files directly."
-	if thumbnail.IsThumbnail(meta.AbsolutePath) {
-		meta.CanonicalUri = "file://" + meta.AbsolutePath
-		meta.UriHash = strings.Split(filepath.Base(meta.AbsolutePath), ".")[0]
-		meta.IsThumbnail = true
-		return meta, nil
 	}
 
 	u := url.URL{Path: meta.AbsolutePath}

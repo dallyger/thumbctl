@@ -19,6 +19,11 @@ func (cmd *PathCmd) Run() error {
 		return err
 	}
 
+	if thumbnail.IsThumbnail(meta.AbsolutePath) {
+		fmt.Printf("%s\n", meta.AbsolutePath)
+		return nil
+	}
+
 	path := filepath.Join(
 		thumbnail.MustGetRootDir(),
 		cmd.Size,
