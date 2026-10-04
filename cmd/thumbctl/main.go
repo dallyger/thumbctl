@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/alecthomas/kong"
+	"go.vnbr.de/thumbctl/internal/cmd/get"
 	"go.vnbr.de/thumbctl/internal/cmd/info"
 	"go.vnbr.de/thumbctl/internal/cmd/license"
 	"go.vnbr.de/thumbctl/internal/cmd/mimetype"
@@ -15,6 +16,7 @@ type Context struct {
 }
 
 type RootCmd struct {
+	Get          get.GetCmd                   `cmd:"" help:"Show thumbnail path and generate if it is stale or missing."`
 	Info         info.InfoCmd                 `cmd:"" help:"Show information about a thumbnail."`
 	Path         path.PathCmd                 `cmd:"" help:"Show the path at which a thumbnail would be stored."`
 	Mime         mimetype.MimeTypeCmd         `cmd:"" help:"Show MIME type of a file."`

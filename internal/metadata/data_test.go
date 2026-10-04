@@ -46,7 +46,7 @@ func TestAbsolutePath(t *testing.T) {
 				t.Fatalf("failure: %s\n", err)
 			}
 
-			if thumb.OriginalPath != tt.abs {
+			if thumb.FilePath != tt.abs {
 				t.Logf("mismatching absolute path.\nexpected: %s\nactual:   %s\n", tt.abs, thumb.AbsolutePath)
 				t.Fail()
 			}

@@ -19,11 +19,11 @@ func UnmarshalTextualDataFromPath(path string, v any) error {
 
 	bs, err := os.ReadFile(path)
 	if err != nil {
-		return fmt.Errorf("failed reading thumbnail file at %s: %s", path, err)
+		return fmt.Errorf("failed reading file: %s", err)
 	}
 
 	if err := UnmarshalTextualData(bs, v); err != nil {
-		return fmt.Errorf("failed reading metadata of thumbnail at %s: %s", path, err)
+		return fmt.Errorf("failed reading metadata of file: %s", err)
 	}
 
 	return nil

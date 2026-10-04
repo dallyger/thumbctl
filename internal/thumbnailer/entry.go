@@ -24,6 +24,18 @@ func (c Entries) Sorted() iter.Seq2[string, Entry] {
 	}
 }
 
+func (c Entries) MatchMimeType(m string) iter.Seq[Entry] {
+	return func(yield func(Entry) bool) {
+		for _, k := range c.Sorted() {
+			if slices.Contains(k.MimeType, m) {
+				if !yield(k) {
+					return
+				}
+			}
+		}
+	}
+}
+
 type Entry struct {
 	Exec     string   `ini:"Exec"`
 	TryExec  string   `ini:"TryExec"`
