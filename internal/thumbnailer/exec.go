@@ -13,9 +13,9 @@ import (
 	"syscall"
 	"time"
 
-	"go.vnbr.de/thumbctl/internal/metadata"
-	"go.vnbr.de/thumbctl/internal/mimetype"
-	"go.vnbr.de/thumbctl/internal/thumbnail"
+	"golang.vnbr.de/thumbctl/internal/metadata"
+	"golang.vnbr.de/thumbctl/internal/mimetype"
+	"golang.vnbr.de/thumbctl/internal/thumbnail"
 )
 
 type RunExecOpts struct {

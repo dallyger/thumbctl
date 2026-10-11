@@ -5,13 +5,13 @@ import (
 	"os"
 
 	"github.com/alecthomas/kong"
-	"go.vnbr.de/thumbctl/internal/cmd/get"
-	"go.vnbr.de/thumbctl/internal/cmd/info"
-	"go.vnbr.de/thumbctl/internal/cmd/license"
-	"go.vnbr.de/thumbctl/internal/cmd/mimetype"
-	"go.vnbr.de/thumbctl/internal/cmd/path"
-	"go.vnbr.de/thumbctl/internal/cmd/thumbnailers"
-	"go.vnbr.de/thumbctl/internal/cmd/version"
+	"golang.vnbr.de/thumbctl/internal/cmd/get"
+	"golang.vnbr.de/thumbctl/internal/cmd/info"
+	"golang.vnbr.de/thumbctl/internal/cmd/license"
+	"golang.vnbr.de/thumbctl/internal/cmd/mimetype"
+	"golang.vnbr.de/thumbctl/internal/cmd/path"
+	"golang.vnbr.de/thumbctl/internal/cmd/thumbnailers"
+	"golang.vnbr.de/thumbctl/internal/cmd/version"
 )
 
 type Context struct {

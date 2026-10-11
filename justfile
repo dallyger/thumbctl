@@ -6,8 +6,8 @@ run +args="":
 
 build bin="target/thumbctl":
     go build -ldflags="\
-        -X 'go.vnbr.de/thumbctl/internal/cmd/version.version=$(git describe --tags --always --dirty)' \
-        -X 'go.vnbr.de/thumbctl/internal/cmd/version.buildDate=$(TZ=UTC date +"%Y-%m-%dT%H:%M:%SZ")' \
+        -X 'golang.vnbr.de/thumbctl/internal/cmd/version.version=$(git describe --tags --always --dirty)' \
+        -X 'golang.vnbr.de/thumbctl/internal/cmd/version.buildDate=$(TZ=UTC date +"%Y-%m-%dT%H:%M:%SZ")' \
         " -o "{{justfile_dir()}}/{{bin}}" cmd/thumbctl/main.go
 
 # Check for incompatible licenses and save them to a file.
@@ -18,7 +18,7 @@ licenses out="THIRD_PARTY_LICENSES":
     go-licenses save --force \
         --add_dir_header \
         --save_path target/third_party/ \
-        --ignore go.vnbr.de/thumbctl \
+        --ignore golang.vnbr.de/thumbctl \
         ./...
     {
       echo "This project includes third-party software. Their licenses follow."

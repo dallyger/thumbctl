@@ -6,7 +6,7 @@ import (
 	"os"
 	"text/tabwriter"
 
-	"go.vnbr.de/thumbctl/internal/mimetype"
+	"golang.vnbr.de/thumbctl/internal/mimetype"
 )
 
 type MimeTypeCmd struct {

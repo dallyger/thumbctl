@@ -6,7 +6,7 @@ import (
 	"os"
 	"text/tabwriter"
 
-	"go.vnbr.de/thumbctl/internal/thumbnailer"
+	"golang.vnbr.de/thumbctl/internal/thumbnailer"
 )
 
 var outputHumanMaxMimeTypes = 5

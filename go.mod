@@ -1,4 +1,4 @@
-module go.vnbr.de/thumbctl
+module golang.vnbr.de/thumbctl
 
 go 1.26.4
 

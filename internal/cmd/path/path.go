@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"go.vnbr.de/thumbctl/internal/metadata"
-	"go.vnbr.de/thumbctl/internal/thumbnail"
+	"golang.vnbr.de/thumbctl/internal/metadata"
+	"golang.vnbr.de/thumbctl/internal/thumbnail"
 )
 
 type PathCmd struct {

@@ -9,9 +9,9 @@ import (
 	"text/tabwriter"
 	"time"
 
-	"go.vnbr.de/thumbctl/internal/metadata"
-	"go.vnbr.de/thumbctl/internal/thumbnail"
-	"go.vnbr.de/thumbctl/internal/thumbnail/data"
+	"golang.vnbr.de/thumbctl/internal/metadata"
+	"golang.vnbr.de/thumbctl/internal/thumbnail"
+	"golang.vnbr.de/thumbctl/internal/thumbnail/data"
 )
 
 type InfoCmd struct {

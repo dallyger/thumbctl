@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/alecthomas/kong"
-	"go.vnbr.de/thumbctl"
+	"golang.vnbr.de/thumbctl"
 )
 
 type LicenseCmd struct {

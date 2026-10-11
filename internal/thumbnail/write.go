@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"go.vnbr.de/thumbctl/internal/metadata"
-	"go.vnbr.de/thumbctl/internal/thumbnail/data"
+	"golang.vnbr.de/thumbctl/internal/metadata"
+	"golang.vnbr.de/thumbctl/internal/thumbnail/data"
 )
 
 // Embed metadata into PNG and store file in cache. Ensures atomic writes.

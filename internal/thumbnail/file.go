@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"go.vnbr.de/thumbctl/internal/metadata"
-	"go.vnbr.de/thumbctl/internal/thumbnail/data"
+	"golang.vnbr.de/thumbctl/internal/metadata"
+	"golang.vnbr.de/thumbctl/internal/thumbnail/data"
 )
 
 // Find thumbnail for file. Returns empty string without error on cache miss.

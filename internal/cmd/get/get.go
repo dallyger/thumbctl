@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"log/slog"
 
-	"go.vnbr.de/thumbctl/internal/metadata"
-	"go.vnbr.de/thumbctl/internal/thumbnail"
-	"go.vnbr.de/thumbctl/internal/thumbnailer"
+	"golang.vnbr.de/thumbctl/internal/metadata"
+	"golang.vnbr.de/thumbctl/internal/thumbnail"
+	"golang.vnbr.de/thumbctl/internal/thumbnailer"
 )
 
 type GetCmd struct {
