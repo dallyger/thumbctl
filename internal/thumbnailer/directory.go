@@ -1,16 +1,18 @@
 package thumbnailer
 
 import (
+	"log/slog"
+	"os"
 	"path"
 	"path/filepath"
 
-	"go4.org/xdgdir"
+	"github.com/adrg/xdg"
 )
 
 // Get directories in which thumbnailers are installed to.
 func GetLocations() []string {
 	var dirs []string
-	for _, dir := range xdgdir.Data.SearchPaths() {
+	for _, dir := range getDataDirs() {
 		dirs = append(dirs, filepath.Join(dir, "thumbnailers"))
 	}
 
@@ -26,4 +28,21 @@ func GetEntryFiles() []string {
 		}
 	}
 	return files
+}
+
+func getDataDirs() []string {
+	dataHome := xdg.DataHome
+
+	if dataHome == "" {
+		home, err := os.UserHomeDir()
+
+		if err != nil {
+			slog.Warn("cannot determine home directory", "error", err)
+			return xdg.DataDirs
+		}
+
+		dataHome = path.Join(home, ".local", "share")
+	}
+
+	return append([]string{dataHome}, xdg.DataDirs...)
 }

@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"go4.org/xdgdir"
+	"github.com/adrg/xdg"
 )
 
 // Get the thumbnails directory.
@@ -14,7 +14,7 @@ import (
 // directory $XDG_CACHE_HOME/thumbnails will be used, otherwise
 // $HOME/.cache/thumbnails will be used.
 func MustGetRootDir() string {
-	if cache := xdgdir.Cache.Path(); cache != "" {
+	if cache := xdg.CacheHome; cache != "" {
 		return filepath.Join(cache, "thumbnails")
 	}
 
